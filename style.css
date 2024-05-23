@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #363f4a;
+
+}
+#clock{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+#hrDotes,
+#minDotes,
+#seDotes{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    rotate: 90deg;
+
+}
+#hrDotes::before,
+#minDotes::before,
+#seDotes::before{
+content: "";
+position: absolute;
+inset: -20px;
+border-radius: 50%;
+box-shadow: 25px 25px 75px rgba(0,0,0,0.25),
+10px 10px 70px rgba(0,0,0,0.25),
+inset 5px 5px 10px rgba(0,0,0,0.5),
+inset 5px 5px 20px rgba(255,255,255,0.2),
+inset -5px -5px 15px rgba(0,0,0,0.75);
+}
+
+
+#seDotes h2,
+#minDotes h2,
+#hrDotes h2
+{
+    position: absolute;
+    text-align: center;
+     transform: rotate(-90deg);
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1rem;
+    font-weight: 700;
+    color:var(--clr);
+}
+#seDotes h2 span,
+#minDotes h2 span,
+#hrDotes h2 span{
+position: absolute;
+font-size: 0.29rem;
+font-weight: 600;
+bottom: -2px;
+text-transform: lowercase;
+letter-spacing:1px;
+}
+#seDotes b{
+    position: absolute;
+    color: #fff;
+    display: inline-flex;
+    transform:rotate(-90deg) translate(5px ,12px );
+    font-size: 0.4rem;
+}
+#seDotes .dot,
+#minDotes .dot,
+#hrDotes .dot{
+    position: absolute;
+    
+    top: 14px;
+    right: 43px;
+    bottom: px;
+    width: 7px;
+    height: 1.2px;
+    background: var(--clr);
+    transform-origin: 35px;
+
+}
+#seDotes .active.dot{
+    background: var(--clr);
+    box-shadow: 0 0 10px var(--clr),0 0 20px var(--clr),
+    0 0 30px var(--clr);
+}
+#seDotes .active.dot ~ .dot,
+#minDotes .active.dot ~ .dot,
+#hrDotes .active.dot ~ .dot{
+    background-color: #555;
+}
+#seDotes .dot:nth-child(5n + 5),
+#minDotes .dot:nth-child(5n + 5),
+#hrDotes .dot:nth-child(5n + 5){
+    width: 12px;
+    /* background:#4929ff; */
+    right: 38px;
+    
+
+}
